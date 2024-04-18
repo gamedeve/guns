@@ -1,32 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-:root,
-html,
-body {
-  font-family: "Poiret One", "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  background: #222;
-  color: white;
-}
-h1 {
-  text-align: center;
-  margin: 1rem auto 2rem;
-  font-weight: normal;
-}
-p {
-  margin: 1rem;
-}
-.row {
-  width: 80%;
-  height: 150px;
-  margin: 2rem auto;
-}
 .cell {
   display: inline-block;
   width: 49%;

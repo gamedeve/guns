@@ -1,0 +1,212 @@
+@import "./fonts.scss";
+@import "./animations.scss";
+@import "./variables.scss";
+@import "./helper.scss";
+@import "./buttons.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+// html {
+//   min-height: 100%;
+// }
+
+body {
+  min-height: 100dvh;
+  // @include tektur-font;
+  background: linear-gradient(to bottom, #114272 0%, #031c42 0%, #114272 50%, #031c42 99%);
+}
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
+}
+.main-loading {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page-loading {
+  min-height: calc(100dvh - var(--van-nav-bar-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.page {
+  min-height: calc(100dvh - var(--van-nav-bar-height));
+  padding: 1rem;
+  position: relative;
+  h1 {
+    color: $lightBlue;
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+}
+.main-navigation {
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // min-height: 100%;
+  height: calc(100dvh - var(--van-nav-bar-height));
+  // padding: 32px 0;
+  .main-row {
+    display: flex;
+    justify-content: space-around;
+  }
+  .main-small-button,
+  .main-big-button {
+    @include tektur-font;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    color: $lightBlue;
+    font-size: 16px;
+    span.name {
+      margin-top: 5px;
+    }
+
+    // position: absolute;
+  }
+
+  .main-small-button {
+    width: 160px;
+    img {
+      width: 64px;
+    }
+
+    // &.inventory-button {
+    // }
+    // &.shop-button {
+    // }
+    // &.mining-button {
+    // }
+    // &.boost-button {
+    // }
+    // &.missions-button {
+    // }
+  }
+  .mine-laoder-block {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 200px;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .claim-button {
+      width: 100%;
+      margin-top: 8px;
+      border: 0;
+      position: relative;
+      height: 69px;
+      color: $lightBlue;
+      font-size: 20px;
+      cursor: pointer;
+      /* text-transform: uppercase; */
+      span {
+        margin-top: -16px;
+      }
+
+      @include active-button;
+
+      // &:disabled:before {
+      //   @include effect-button;
+      //   opacity: 0.5;
+      //   background-color: transparent;
+      //   background-image: url(@/assets/buttons/Blue/BlueButtonDisable.png);
+      //   background-size: 100% 100%;
+      //   border: inherit;
+      //   border-color: none;
+      // }
+    }
+  }
+  .mine-laoder {
+    width: 100%;
+    height: 25px;
+    margin: 8px auto;
+    background: #031e44;
+    border-radius: 5px;
+    // border: 1px solid $lightBlue;
+    position: relative;
+    overflow: hidden;
+    .fill {
+      height: 100%;
+      width: 50%;
+      background: $lightBlue;
+    }
+  }
+  .main-mine-cell {
+    width: 80%;
+    text-align: center;
+  }
+  .main-big-button {
+    img {
+      width: 200px;
+    }
+  }
+
+  .stats-block {
+    margin-bottom: 16px;
+  }
+}
+
+.mine-info {
+  display: block;
+  margin-bottom: 4px;
+  color: $lightBlue;
+  font-size: 14px;
+  line-height: 1;
+  &.mine-percent {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  &.balance {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+}
+
+/*************INventory**************/
+.inventory-grid {
+  // margin-left: -8px;
+  // margin-right: -8px;
+}
+.inventory-item {
+  position: relative;
+  box-sizing: border-box;
+  .van-grid-item__content {
+    padding: 0.5rem;
+    background: $darkBlue;
+    color: $lightBlue;
+    border: 2px solid $lightBlue;
+  }
+  .footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+}

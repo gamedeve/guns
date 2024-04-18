@@ -1,0 +1,12 @@
+$lightBlue: #90d7f3;
+$darkBlue: #031c42;
+
+:root:root {
+  // --van-nav-bar-height: 100px;
+  --van-nav-bar-background: #{$darkBlue};
+  --van-nav-bar-text-color: #{$lightBlue};
+  --van-nav-bar-icon-color: #{$lightBlue};
+  --van-nav-bar-title-text-color: #{$lightBlue};
+  --van-border-color: #{$lightBlue};
+  --van-base-font: "Tektur", sans-serif;
+}

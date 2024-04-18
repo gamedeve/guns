@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import MineLoader from "@/components/MineLoader.vue";
+import StatsInfo from "@/components/StatsInfo.vue";
+// import Timer from "@/components/Timer.vue";
 </script>
 
 <template>
   <div class="page home">
     <div class="main-navigation">
 
-
-      <div class="main-row">
+      <div class="main-row my-auto">
         <div class="main-mine-cell">
-          <RouterLink to="/minig" class="main-big-button mining-button">
+          <StatsInfo />
+          <!-- <Timer /> -->
+          <div class="main-big-button mining-button">
             <img class="gelatine" src="@/assets/icons/mining-icon.png" />
-            <!-- <span class="name">Mining</span> -->
-
-          </RouterLink>
+          </div>
           <MineLoader />
         </div>
       </div>

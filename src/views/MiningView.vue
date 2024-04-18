@@ -3,6 +3,6 @@
 
 <template>
   <div class="page home">
-    <h1 class="green">Minig</h1>
+    <h1>Minig</h1>
   </div>
 </template>

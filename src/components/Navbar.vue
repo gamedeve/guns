@@ -1,8 +1,10 @@
 <template>
-  <van-nav-bar title="Title" left-text="Back" left-arrow @click-left="onClickLeft" />
+  <van-nav-bar title="" left-text="Back" right-text="Button" left-arrow @click-left="onClickLeft"
+    @click-right="onClickRight" />
 </template>
 <script setup>
-function onClickLeft() {
+const onClickLeft = () => {
   history.back();
 }
+const onClickRight = () => showToast('Button');
 </script>
