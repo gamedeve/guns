@@ -11,10 +11,16 @@ import VueAxios from "vue-axios";
 
 const app = createApp(App);
 
-app.use(createPinia());
+const telegram = window.Telegram.WebApp;
+app.provide("tg", telegram);
+const pinia = createPinia();
+pinia.use(({ store }) => {
+  store.tg = telegram;
+});
+app.use(pinia);
 app.use(router);
 app.use(VueAxios, axios);
-app.config.globalProperties.tg = window.Telegram.WebApp;
+// app.config.globalProperties.tg = window.Telegram.WebApp;
 
 app.axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 app.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -22,3 +28,23 @@ app.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 app.mount("#app");
 
 eruda.init();
+
+// const backButton = Telegram.WebApp.BackButton;
+
+// // Показывать кнопку только если есть GET параметры
+// // Показывать кнопку только если есть параметры
+// // и страница не главная
+// if (window.location.pathname !== "/") {
+//   backButton.show();
+//   console.log("backButton.show()", window.location.pathname);
+// } else {
+//   backButton.hide();
+//   console.log(
+//     "backButton.hide()",
+//     window.location.pathname,
+//     window.location.search
+//   );
+// }
+// backButton.onClick(() => {
+//   history.back();
+// });

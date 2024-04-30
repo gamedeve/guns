@@ -14,4 +14,5 @@ export interface MissionItem {
   name: string;
   image: string;
   reward: number;
+  completed: boolean;
 }

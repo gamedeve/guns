@@ -1,17 +1,19 @@
 <template>
-  <van-grid-item class="mission-item">
+  <div @click="startMission()" class="mission-item">
 
     <div class="icon">
-
       <van-image :src="item.image" />
     </div>
-    {{ item.name }}
-    <div class="footer">
-      <van-button type="primary" size="small">Primary</van-button>
-      <van-button type="success" size="small">Success</van-button>
+    <div class="name">
+      {{ item.name }}
+    </div>
+    <div class="reward">
+      <div class="count">{{ item.reward }}</div>
+      <!-- <div v-if="!item.completed" class="is-complete">Completed</div> -->
+      <div v-if="item.completed" class="is-complete">Completed</div>
     </div>
     <!-- img: {{ item.image }} -->
-  </van-grid-item>
+  </div>
 </template>
 <script setup lang="ts">
 import type { MissionItem } from "@/stores/types";
@@ -19,4 +21,14 @@ import type { MissionItem } from "@/stores/types";
 const props = defineProps<{
   item: MissionItem
 }>()
+
+function startMission() {
+  let mission = props.item;
+  if (mission.completed) {
+    return;
+  }
+
+
+  console.log("start", props.item.id)
+}
 </script>

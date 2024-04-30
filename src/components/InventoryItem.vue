@@ -7,6 +7,7 @@
     </div>
     <van-image :src="item.image" />
     <div class="footer">
+
       <van-button type="primary" size="small">Primary</van-button>
       <van-button type="success" size="small">Success</van-button>
     </div>

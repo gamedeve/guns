@@ -4,6 +4,9 @@ import HomeView from "../views/HomeView.vue";
 // import middlewarePipeline from "./middlewarePipeline";
 // import guest from "./middleware/guest";
 // import auth from "./middleware/auth";
+// const tg = inject("tg");
+// const backButton = tg.BackButton;
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   // history: createMemoryHistory,
@@ -54,6 +57,22 @@ const router = createRouter({
   ],
 });
 
+// const tg = inject("tg");
+// const backButton = tg.BackButton;
+const backButton = window.Telegram.WebApp.BackButton;
+router.afterEach((to, from) => {
+  // Показывать кнопку только если есть GET параметры
+  // Показывать кнопку только если есть параметры
+  // и страница не главная
+  if (to.path !== "/") {
+    backButton.show();
+  } else {
+    backButton.hide();
+  }
+  backButton.onClick(() => {
+    history.back();
+  });
+});
 // router.beforeEach((to, from, next) => {
 //   if (!to.meta.middleware) {
 //     return next();

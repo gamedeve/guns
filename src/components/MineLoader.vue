@@ -26,9 +26,9 @@ userStore.$subscribe((mutation, state) => {
 })
 onMounted(() => {
   // counterStore.startTimer();
-  if (userStore.isLoggedIn) {
-    counterStore.startTimer();
-  }
+  // if (userStore.isLoggedIn) {
+  //   counterStore.startTimer();
+  // }
 });
 onBeforeUnmount(() => {
   clearInterval(counterStore.updateTimeInterval);

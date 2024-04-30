@@ -1,6 +1,12 @@
 <template>
   <div class="stats-block">
-    <span class="mine-info balance">Balance: 0.045</span>
-    <span class="mine-info mine-time">0.034 $/hour</span>
+    <span class="mine-info balance">Balance: {{ userStore.user.coins }}</span>
+    <span class="mine-info mine-time">{{ counterStore.countInHour }} $/hour</span>
   </div>
 </template>
+<script setup>
+import { useCounterStore } from '@/stores/counter'
+const counterStore = useCounterStore()
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
+</script>

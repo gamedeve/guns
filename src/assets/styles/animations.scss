@@ -366,6 +366,9 @@
 .bounce-in {
   animation: bounce-in 2s ease infinite;
 }
+.bounce-in-one {
+  animation: bounce-in 1s ease;
+}
 @keyframes bounce-in {
   0% {
     opacity: 0;
