@@ -1,5 +1,5 @@
 <template>
-  <div @click="startMission()" class="mission-item">
+  <div @click="startMission()" class="mission-item item-clicked">
 
     <div class="icon">
       <van-image :src="item.image" />
@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { MissionItem } from "@/stores/types";
+import type { MissionItemType } from "@/stores/types";
 // const props = defineProps(['item'])
 const props = defineProps<{
   item: MissionItem

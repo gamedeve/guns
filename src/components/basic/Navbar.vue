@@ -16,10 +16,10 @@ const userStore = useUserStore()
 
 import { useRoute } from 'vue-router'
 const route = useRoute();
-// const onClickLeft = () => {
-//   history.back();
-//   console.log(isHome.value)
-// }
+const onClickLeft = () => {
+  // history.back();
+  console.log(isHome.value)
+}
 
 // const isHome = computed(() => {
 //   return route.path === '/';

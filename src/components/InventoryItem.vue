@@ -1,5 +1,5 @@
 <template>
-  <van-grid-item class="inventory-item">
+  <van-grid-item class="inventory-item item-clicked">
 
     id: {{ item.id }}
     <div class="header">
@@ -15,9 +15,9 @@
   </van-grid-item>
 </template>
 <script setup lang="ts">
-import type { InventoryItem } from "@/stores/types";
+import type { InventoryItemType } from "@/stores/types";
 // const props = defineProps(['item'])
 const props = defineProps<{
-  item: InventoryItem
+  item: InventoryItemType
 }>()
 </script>

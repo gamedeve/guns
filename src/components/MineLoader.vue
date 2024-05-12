@@ -20,10 +20,10 @@ import { useUserStore } from '@/stores/user'
 const userStore = useUserStore()
 
 
-userStore.$subscribe((mutation, state) => {
-  console.log('a change happened')
-  console.log(mutation, state)
-})
+// userStore.$subscribe((mutation, state) => {
+//   console.log('a change happened')
+//   console.log(mutation, state)
+// })
 onMounted(() => {
   // counterStore.startTimer();
   // if (userStore.isLoggedIn) {
@@ -34,10 +34,10 @@ onBeforeUnmount(() => {
   clearInterval(counterStore.updateTimeInterval);
 });
 
-userStore.$subscribe((mutation, state) => {
-  if (state.isLoggedIn) {
-    counterStore.startTimer();
-  }
-})
+// userStore.$subscribe((mutation, state) => {
+//   if (state.isLoggedIn) {
+//     counterStore.startTimer();
+//   }
+// })
 
 </script>

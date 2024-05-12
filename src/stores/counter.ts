@@ -6,7 +6,7 @@ export const useCounterStore = defineStore("counter", {
   state: () => ({
     secondsUpdate: 1, //сек между обновлениями
     counterIntervalID: 0, //interval function
-    countInHour: 0,
+    claimSpeed: 0,
     leftTime: 0, //time left
     timerMaxTime: 0,
     claim_at: "",
@@ -15,7 +15,7 @@ export const useCounterStore = defineStore("counter", {
     claimActive: false,
   }),
   getters: {
-    countInSecond: (state) => state.countInHour / 3600,
+    countInSecond: (state) => state.claimSpeed / 3600,
 
     currentCount(state): number {
       if (state.leftTime <= 0) {
@@ -82,8 +82,8 @@ export const useCounterStore = defineStore("counter", {
         Date.parse(this.claim_at) + 3600000 < Date.now() &&
         !this.claimActive
       ) {
-        console.log("__", Date.parse(this.claim_at) + 3600);
-        console.log("__", Date.now());
+        // console.log("__", Date.parse(this.claim_at) + 3600);
+        // console.log("__", Date.now());
         this.claimActive = true;
       }
     },

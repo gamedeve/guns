@@ -1,5 +1,10 @@
+$bgGradient: linear-gradient(to bottom, #031c42 0%, #114272 50%, #031c42 99%);
+$popupGradient: linear-gradient(to bottom, #114272 0%, #031c42 99%);
 $lightBlue: #90d7f3;
+$mediumBlue: #114272;
 $darkBlue: #031c42;
+$primary: #064f97;
+$primaryGradient: linear-gradient(to bottom, #064f97 0%, #013b7c 99%);
 
 :root:root {
   // --van-nav-bar-height: 100px;
@@ -9,4 +14,8 @@ $darkBlue: #031c42;
   --van-nav-bar-title-text-color: #{$lightBlue};
   --van-border-color: #{$lightBlue};
   --van-base-font: "Tektur", sans-serif;
+  --van-popup-background: #{$popupGradient};
+  --van-button-primary-background: #{$primaryGradient};
+  --van-button-primary-border-color: #{$lightBlue};
+  --van-button-border-width: 2px;
 }

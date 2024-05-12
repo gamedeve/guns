@@ -1,7 +1,7 @@
 <template>
   <div class="stats-block">
     <span class="mine-info balance">Balance: {{ userStore.user.coins }}</span>
-    <span class="mine-info mine-time">{{ counterStore.countInHour }} $/hour</span>
+    <span class="mine-info mine-time">{{ counterStore.claimSpeed }} per hour</span>
   </div>
 </template>
 <script setup>

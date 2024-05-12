@@ -5,7 +5,7 @@ import Navbar from "@/components/basic/Navbar.vue";
 import BottomMenu from "@/components/basic/BottomMenu.vue";
 import Dialog from "@/components/Dialog.vue";
 import MainLoading from "@/components/basic/MainLoading.vue";
-import ErrorNotify from "@/components/basic/ErrorNotify.vue";
+import ErrorNotify from "@/components/basic/Notify.vue";
 import { useUserStore } from '@/stores/user'
 const userStore = useUserStore()
 import { inject } from 'vue'

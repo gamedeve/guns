@@ -5,7 +5,7 @@
     <PageSoon />
     <!-- <PageLoading v-show="missionsStore.loading" />
     <van-space v-show="!missionsStore.loading" direction="vertical" :size="20" fill>
-      <mission-item v-for="item in missionsStore.items" :key="index" :item="item" />
+      <mission-item v-for="item in missionsStore.items" :key="item.id" :item="item" />
     </van-space> -->
   </div>
 </template>

@@ -1,16 +1,20 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import { useErrorsStore } from "./errors";
+import { useNotifyStore } from "./notify";
 import { useInventoryStore } from "./inventory";
 import { useMissionsStore } from "./missions";
 import { useCounterStore } from "./counter";
-import { inject } from "vue";
-import type { ErrorMessage, InventoryItem, MissionItem } from "./types";
+import type {
+  ErrorMessage,
+  MissionItemType,
+  UserType,
+  BoostItemType,
+} from "./types";
 export const useUserStore = defineStore("user", {
   state: () => ({
     isLoggedIn: false,
     // user: JSON.parse(localStorage.getItem("user") || "{}"),
-    user: "{}",
+    user: {},
   }),
   getters: {},
   actions: {
@@ -43,8 +47,8 @@ export const useUserStore = defineStore("user", {
 
               console.log("user loaded22.");
               // console.log(data);
-              console.log(useCounterStore().claim_at);
-              console.log(useCounterStore().next_claim_at);
+              // console.log(useCounterStore().claim_at);
+              // console.log(useCounterStore().next_claim_at);
 
               if (data.inventory) {
                 useInventoryStore().setItems(data.inventory);
@@ -58,13 +62,10 @@ export const useUserStore = defineStore("user", {
           .catch((error) => {
             // reject(error);
             // console.log(error);
-            useErrorsStore().setError({
-              code: error.code,
-              message: error.message,
-            });
+            useNotifyStore().setError(error);
           });
       });
-      setTimeout(() => {}, 5000);
+      // setTimeout(() => {}, 5000);
     },
     async claimMoney() {
       // console.log(window.Telegram.WebApp.initData);
@@ -85,21 +86,18 @@ export const useUserStore = defineStore("user", {
           .catch((error) => {
             // reject(error);
             // console.log(error);
-            useErrorsStore().setError({
-              code: error.code,
-              message: error.message,
-            });
+            useNotifyStore().setError(error);
           });
       });
-      setTimeout(() => {}, 5000);
+      // setTimeout(() => {}, 5000);
     },
     updateUserCounter(user: any) {
       useCounterStore().claim_at = user.claim_at;
       useCounterStore().next_claim_at = user.next_claim_at;
       useCounterStore().startTimer();
-      // useCounterStore().countInHour = user.count_in_hour.toFixed(2);
-      useCounterStore().countInHour = user.count_in_hour;
-      console.log("count_in_hour", useCounterStore().countInHour);
+      // useCounterStore().claimSpeed = user.claim_speed.toFixed(2);
+      useCounterStore().claimSpeed = user.claim_speed;
+      console.log("claim_speed", useCounterStore().claimSpeed);
     },
     setList() {
       let list = [];
@@ -129,6 +127,9 @@ export const useUserStore = defineStore("user", {
         list.push(inv);
       }
       useMissionsStore().setItems(list);
+    },
+    getImageUrl(name: string) {
+      return new URL(`../assets/icons/${name}`, import.meta.url).href;
     },
   },
 });
