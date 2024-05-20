@@ -19,13 +19,17 @@ export const useCounterStore = defineStore("counter", {
 
     currentCount(state): number {
       if (state.leftTime <= 0) {
-        return +(this.timerMaxTime * this.countInSecond).toFixed(5);
+        // return +(this.timerMaxTime * this.countInSecond).toFixed(2);
+        return Math.ceil(this.timerMaxTime * this.countInSecond);
       }
 
-      return +(
-        (this.timerMaxTime - this.leftTime) *
-        this.countInSecond
-      ).toFixed(5);
+      // return +(
+      //   (this.timerMaxTime - this.leftTime) *
+      //   this.countInSecond
+      // ).toFixed(2);
+      return Math.ceil(
+        (this.timerMaxTime - this.leftTime) * this.countInSecond
+      );
     },
     timeString: (state) => {
       // console.log("leftTime", state.leftTime);
@@ -54,7 +58,9 @@ export const useCounterStore = defineStore("counter", {
         // this.currentTime = Math.abs(dif);
         // console.log("this.currentTime", this.currentTime);
         // this.currentTime = useUserStore().timerMaxTime;
-        this.redrawTimer();
+        // console.log("startTimer");
+        // this.redrawTimer();
+        this.updateCurrentTime();
         this.counterIntervalID = setInterval(
           this.updateCurrentTime,
           this.secondsUpdate * 1000

@@ -57,10 +57,10 @@ export const useUserStore = defineStore("user", {
               this.setMissions();
             }
 
-            // resolve(response);
+            resolve(response);
           })
           .catch((error) => {
-            // reject(error);
+            reject(error);
             // console.log(error);
             useNotifyStore().setError(error);
           });

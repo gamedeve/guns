@@ -44,8 +44,9 @@
       </div>
     </div>
     <div v-if="!isMaxLevel" class="price">Price upgrade: {{ item.price }}</div>
-    <van-button v-if="!isMaxLevel" @click="upgrade" :loading="boostStore.upgradeLoding" class="upgrade-button"
-      size="large" type="primary" loading-type="spinner" loading-text="Loading...">Upgrade</van-button>
+    <van-button :disabled="!upgradable" v-if="!isMaxLevel" @click="upgrade" :loading="boostStore.upgradeLoding"
+      class="upgrade-button" size="large" type="primary" loading-type="spinner"
+      loading-text="Loading...">Upgrade</van-button>
   </van-popup>
 </template>
 <script setup lang="ts">
@@ -53,6 +54,8 @@ import type { BoostItemType } from "@/stores/types";
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useBoostStore } from '@/stores/boost'
 const boostStore = useBoostStore()
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
 // const props = defineProps(['item'])
 const props = defineProps<{
   item: BoostItemType
@@ -60,6 +63,10 @@ const props = defineProps<{
   // count: string
 }>()
 const show = ref(false);
+const upgradable = computed(() => {
+  return userStore.user.coins != undefined && userStore.user?.coins >= props.item.price
+
+})
 const showPopup = () => {
   show.value = true;
 };

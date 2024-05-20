@@ -1,5 +1,6 @@
 <template>
   <van-nav-bar title="" left-text="" @click-left="onClickLeft" :right-text="`@` + userStore.user.name">
+    <!-- <van-nav-bar title="" left-text="" @click-left="onClickLeft" :right-text="`@user`"> -->
     <!-- <template v-if="!isHome" #left>
 
       <van-icon name="arrow-left" />

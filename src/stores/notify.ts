@@ -12,18 +12,18 @@ export const useNotifyStore = defineStore("notify", {
     //   this.error = error;
     // },
     setError(notify: any) {
-      console.log("_____________________");
-      console.log(notify);
+      // console.log("_____________________");
+      // console.log(notify);
       this.error = notify;
     },
     setSuccess(notify: any) {
-      console.log("_____________________");
-      console.log(notify);
+      // console.log("_____________________");
+      // console.log(notify);
       this.success = notify;
     },
     setInfo(notify: any) {
-      console.log("_____________________");
-      console.log(notify);
+      // console.log("_____________________");
+      // console.log(notify);
       this.info = notify;
     },
   },

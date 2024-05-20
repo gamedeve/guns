@@ -27,8 +27,6 @@ function startMission() {
   if (mission.completed) {
     return;
   }
-
-
-  console.log("start", props.item.id)
+  // console.log("start", props.item.id)
 }
 </script>

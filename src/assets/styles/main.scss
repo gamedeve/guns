@@ -31,6 +31,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+.load-error {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
 .page-soon {
   min-height: calc(100dvh - var(--van-nav-bar-height));
   display: flex;
