@@ -15,9 +15,9 @@
   </van-grid-item>
 </template>
 <script setup lang="ts">
-import type { InventoryItemType } from "@/stores/types";
+// import type { InventoryItemType } from "@/stores/types";
 // const props = defineProps(['item'])
 const props = defineProps<{
-  item: InventoryItemType
+  item: any
 }>()
 </script>

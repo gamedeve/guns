@@ -23,7 +23,9 @@ export interface UserType {
 export interface MissionItemType {
   id: number;
   name: string;
-  image: string;
+  description: string;
+  icon: string;
+  url: string;
   reward: number;
   completed: boolean;
 }
@@ -39,4 +41,13 @@ export interface BoostItemType {
   next_level: string;
   current: string;
   next_current: string;
+}
+
+export interface ShopBoxType {
+  id: number;
+  name: string;
+  description: string;
+  rarity: string;
+  icon: string;
+  price: number;
 }

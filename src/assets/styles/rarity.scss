@@ -1,0 +1,36 @@
+.rarity {
+  border-width: 2px;
+  border-style: solid;
+  --rarity-box-shadow-color: #{$commonColor};
+  box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+  -webkit-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+  -moz-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+}
+.common {
+  border-color: $commonColor;
+  --rarity-box-shadow-color: #{$commonColor};
+}
+.rare {
+  border-color: $rareColor;
+  --rarity-box-shadow-color: #{$rareColor};
+}
+.epic {
+  border-color: $epicColor;
+  --rarity-box-shadow-color: #{$epicColor};
+}
+.legendary {
+  border-color: $legendaryColor;
+  --rarity-box-shadow-color: #{$legendaryColor};
+}
+.text-common {
+  color: $commonColor;
+}
+.text-rare {
+  color: $rareColor;
+}
+.text-epic {
+  color: $epicColor;
+}
+.text-legendary {
+  color: $legendaryColor;
+}

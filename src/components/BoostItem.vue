@@ -17,7 +17,7 @@
   </div>
 
 
-  <van-popup v-model:show="show" closeable round position="bottom" class="item-popup" :style="{ height: '70%' }">
+  <van-popup v-model:show="show" closeable round position="bottom" class="item-popup" :style="{ height: '80%' }">
     <h3>{{ item.name }}</h3>
     <div class="descr">
       {{ item.description }}

@@ -41,10 +41,10 @@ export const useBoostStore = defineStore("boost", {
     },
   },
   actions: {
-    async upgradeSpeed() {
+    upgradeSpeed() {
       // console.log(window.Telegram.WebApp.initData);
       this.upgradeLoding = true;
-      await new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         axios
           .post("/upgrade-speed")
           .then((response) => {
@@ -67,10 +67,10 @@ export const useBoostStore = defineStore("boost", {
           });
       });
     },
-    async upgradeHours() {
+    upgradeHours() {
       // console.log(window.Telegram.WebApp.initData);
       this.upgradeLoding = true;
-      await new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         axios
           .post("/upgrade-hours")
           .then((response) => {

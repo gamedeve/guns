@@ -3,6 +3,8 @@
 @import "./variables.scss";
 @import "./helper.scss";
 @import "./buttons.scss";
+@import "./popup.scss";
+@import "./rarity.scss";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -245,37 +247,47 @@ body {
   padding: 0.5rem;
   background: $darkBlue;
   color: $lightBlue;
-  border: 2px solid $lightBlue;
+  border: 1px solid $lightBlue;
   color: $lightBlue;
   cursor: pointer;
   position: relative;
   .icon {
-    width: 80px;
-    height: 80px;
+    // width: 80px;
+    // height: 80px;
     // padding: 16px;
-    border: 1px solid $lightBlue;
-    border-radius: 100%;
+    // border: 1px solid $lightBlue;
+    // border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .centr {
+    padding: 0 8px;
+    flex: 1;
   }
   .name {
     text-align: left;
-    flex: 1;
-    padding: 16px;
-    font-size: 1.5rem;
+
+    font-size: 1.1rem;
     line-height: 1;
+    margin-bottom: 4px;
+  }
+  .description {
+    font-size: 0.9rem;
   }
   .reward {
-    width: 100px;
+    width: 60px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
     .count {
-      font-size: 2rem;
+      font-size: 1.1rem;
       margin-bottom: 4px;
     }
     .is-complete {
-      font-size: 1rem;
+      font-size: 0.65rem;
     }
   }
 }
@@ -334,73 +346,6 @@ body {
   }
 }
 
-.item-popup {
-  background: $darkBlue;
-  padding: 32px;
-  padding-top: 48px;
-  text-align: center;
-  color: $lightBlue;
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-  }
-  .descr {
-    font-size: 1.25rem;
-    margin-bottom: 16px;
-  }
-  .upgrade-button {
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    text-transform: uppercase;
-    height: 60px;
-    display: block;
-    min-width: 60%;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    color: $lightBlue;
-  }
-  .level-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: 0.5rem;
-    background: $darkBlue;
-    color: $lightBlue;
-    border: 2px solid $lightBlue;
-    color: $lightBlue;
-    cursor: pointer;
-    margin-bottom: 8px;
-    &.current-level {
-      margin-bottom: 16px;
-    }
-    .icon {
-      width: 60px;
-      height: 60px;
-      margin-right: 16px;
-    }
-    .upgrade-item-descr {
-      display: flex;
-      align-items: center;
-    }
-    .upgrade-item-level {
-      text-align: center;
-      padding: 16px;
-      margin-left: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-      font-size: 1.25rem;
-    }
-  }
-  .price {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-  }
-}
-
 .item-clicked {
   position: relative;
 
@@ -423,6 +368,67 @@ body {
     transform: translate(-50%, -50%);
     opacity: 0;
     content: " ";
+  }
+}
+
+.box-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.5rem;
+  background: $darkBlue;
+  color: $lightBlue;
+  cursor: pointer;
+  position: relative;
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img {
+      max-width: 100px;
+      width: 100%;
+    }
+  }
+  .centr {
+    padding: 0 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+  }
+  .name {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+  .price {
+    font-size: 1.5rem;
+  }
+}
+
+.wrapper-reward {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $lightBlue;
+  h3 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+  }
+  .reward-image {
+    max-width: 250px;
+    width: 100%;
+  }
+  .continue {
+    margin-top: 16px;
   }
 }
 

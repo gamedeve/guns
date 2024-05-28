@@ -19,6 +19,10 @@ export const useCounterStore = defineStore("counter", {
 
     currentCount(state): number {
       if (state.leftTime <= 0) {
+        // console.log(11111);
+        // console.log(this.timerMaxTime * this.countInSecond);
+        // console.log(this.timerMaxTime);
+        // console.log(this.countInSecond);
         // return +(this.timerMaxTime * this.countInSecond).toFixed(2);
         return Math.ceil(this.timerMaxTime * this.countInSecond);
       }
@@ -27,6 +31,8 @@ export const useCounterStore = defineStore("counter", {
       //   (this.timerMaxTime - this.leftTime) *
       //   this.countInSecond
       // ).toFixed(2);
+      // console.log(2222222222);
+      // console.log((this.timerMaxTime - this.leftTime) * this.countInSecond);
       return Math.ceil(
         (this.timerMaxTime - this.leftTime) * this.countInSecond
       );
@@ -60,6 +66,7 @@ export const useCounterStore = defineStore("counter", {
         // this.currentTime = useUserStore().timerMaxTime;
         // console.log("startTimer");
         // this.redrawTimer();
+        // console.log("startTimer");
         this.updateCurrentTime();
         this.counterIntervalID = setInterval(
           this.updateCurrentTime,
@@ -69,18 +76,13 @@ export const useCounterStore = defineStore("counter", {
       // console.log(timerMaxTime.value)
     },
     updateCurrentTime() {
-      // console.log("Date.now()", Date.now());
+      // console.log("updateCurrentTime");
       // console.log("new Date(", new Date());
       // console.log("this.next_claim_at", this.next_claim_at);
       // console.log("this.next_claim_at+", Date.parse(this.next_claim_at));
-      if (Date.now() < Date.parse(this.next_claim_at)) {
-        // this.currentTime -= this.secondsUpdate;
-        // console.log(this.currentTime);
-        // console.log(this.counterIntervalID);
-        this.redrawTimer();
-      } else {
+      this.redrawTimer();
+      if (Date.now() >= Date.parse(this.next_claim_at)) {
         this.stopTimer();
-
         console.log("timer stop");
       }
 

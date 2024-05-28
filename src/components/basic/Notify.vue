@@ -13,6 +13,7 @@ notifyStore.$subscribe((mutation, state) => {
   if (Object.keys(notifyStore.success).length !== 0) {
     // console.log(notifyStore.success != {})
     // console.log(notifyStore.success)
+    // console.log(notifyStore.success.message)
     let msg = notifyStore.success?.response?.data?.message ?? notifyStore.success.message;
     showNotify({ type: 'success', message: msg });
     notifyStore.setSuccess({});

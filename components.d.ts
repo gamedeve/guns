@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     BoostItem: typeof import('./src/components/BoostItem.vue')['default']
     BottomMenu: typeof import('./src/components/basic/BottomMenu.vue')['default']
+    BoxItem: typeof import('./src/components/BoxItem.vue')['default']
     Dialog: typeof import('./src/components/Dialog.vue')['default']
     InventoryItem: typeof import('./src/components/InventoryItem.vue')['default']
     LoadError: typeof import('./src/components/basic/LoadError.vue')['default']
@@ -31,6 +32,7 @@ declare module 'vue' {
     VanImage: typeof import('vant/es')['Image']
     VanLoading: typeof import('vant/es')['Loading']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanOverlay: typeof import('vant/es')['Overlay']
     VanPopup: typeof import('vant/es')['Popup']
     VanSpace: typeof import('vant/es')['Space']
     VanTabbar: typeof import('vant/es')['Tabbar']

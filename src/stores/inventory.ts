@@ -9,7 +9,7 @@ export const useInventoryStore = defineStore("inventory", {
   }),
   // getters: {},
   actions: {
-    setItems(items) {
+    setItems(items: any) {
       this.items = items;
       this.loading = false;
     },

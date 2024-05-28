@@ -18,10 +18,10 @@ export const useUserStore = defineStore("user", {
   }),
   getters: {},
   actions: {
-    async loadUser() {
+    loadUser() {
       // console.log(window.Telegram.WebApp.initData);
 
-      await new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         axios
           .post(
             // "/load_user?fdf"
@@ -54,7 +54,7 @@ export const useUserStore = defineStore("user", {
                 useInventoryStore().setItems(data.inventory);
               }
               // this.setList();
-              this.setMissions();
+              // this.setMissions();
             }
 
             resolve(response);
@@ -67,10 +67,10 @@ export const useUserStore = defineStore("user", {
       });
       // setTimeout(() => {}, 5000);
     },
-    async claimMoney() {
+    claimMoney() {
       // console.log(window.Telegram.WebApp.initData);
 
-      await new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         axios
           .post("/claim")
           .then((response) => {
@@ -99,35 +99,36 @@ export const useUserStore = defineStore("user", {
       useCounterStore().claimSpeed = user.claim_speed;
       console.log("claim_speed", useCounterStore().claimSpeed);
     },
-    setList() {
-      let list = [];
-      for (let i = 0; i < 25; i++) {
-        let inv: InventoryItem = {
-          id: i,
-          name: "name " + 1,
-          image: import.meta.env.VITE_APP_API_URL + "/images/gun_45g.png",
-          rare: "diamond",
-        };
-        list.push(inv);
-      }
+    // setList() {
+    //   let list = [];
+    //   for (let i = 0; i < 25; i++) {
+    //     let inv = {
+    //       id: i,
+    //       name: "name " + 1,
+    //       image: import.meta.env.VITE_APP_API_URL + "/images/gun_45g.png",
+    //       rare: "diamond",
+    //     };
+    //     list.push(inv);
+    //   }
 
-      console.log(list);
-      useInventoryStore().setItems(list);
-    },
-    setMissions() {
-      let list = [];
-      for (let i = 0; i < 25; i++) {
-        let inv: MissionItem = {
-          id: i,
-          name: "name " + 1,
-          image: import.meta.env.VITE_APP_API_URL + "/images/gun.png",
-          reward: 11 + i,
-          completed: i % 2 === 0,
-        };
-        list.push(inv);
-      }
-      useMissionsStore().setItems(list);
-    },
+    //   console.log(list);
+    //   useInventoryStore().setItems(list);
+    // },
+    // setMissions() {
+    //   let list = [];
+    //   for (let i = 0; i < 25; i++) {
+    //     let inv: MissionItem = {
+    //       id: i,
+    //       name: "subscribe tha chanel " + 1,
+    //       description: "description " + 1,
+    //       image: import.meta.env.VITE_APP_API_URL + "/images/gun.png",
+    //       reward: 11 + i,
+    //       completed: i % 2 === 0,
+    //     };
+    //     list.push(inv);
+    //   }
+    //   useMissionsStore().setItems(list);
+    // },
     getImageUrl(name: string) {
       return new URL(`../assets/icons/${name}`, import.meta.url).href;
     },

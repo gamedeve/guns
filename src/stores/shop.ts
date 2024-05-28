@@ -2,27 +2,28 @@ import { defineStore } from "pinia";
 import { useNotifyStore } from "./notify";
 import { useUserStore } from "./user";
 import axios from "axios";
-export const useMissionsStore = defineStore("missions", {
+export const useShopStore = defineStore("shop", {
   state: () => ({
-    items: [],
+    boxes: [],
     loading: true,
+    loadingBuy: false,
   }),
   // getters: {},
   actions: {
-    setItems(items: any) {
-      this.items = items;
+    setBoxes(items: any) {
+      this.boxes = items;
       this.loading = false;
     },
-    getMissions() {
+    getBoxes() {
       // console.log(window.Telegram.WebApp.initData);
       this.loading = true;
       return new Promise((resolve, reject) => {
         axios
-          .get("/missions")
+          .get("/boxes")
           .then((response) => {
             let data = response.data;
-            if (data.missions) {
-              this.setItems(data.missions);
+            if (data.boxes) {
+              this.setBoxes(data.boxes);
             }
 
             resolve(response);
@@ -32,36 +33,36 @@ export const useMissionsStore = defineStore("missions", {
             // console.log(error);
             useNotifyStore().setError(error);
           });
+
+        // resolve(22222222222);
       });
+
       // setTimeout(() => {}, 5000);
     },
-    checkMission(missionId: number) {
+    buyBox(boxId: number) {
       // console.log(window.Telegram.WebApp.initData);
-
+      this.loadingBuy = true;
       return new Promise((resolve, reject) => {
         axios
-          .post("/check-mission", {
-            missionId: missionId,
+          .post("/buy-box", {
+            boxId: boxId,
           })
           .then((response) => {
             let data = response.data;
             if (data.user) {
               useUserStore().user = data.user;
             }
-            if (data.missions) {
-              this.setItems(data.missions);
-            }
 
-            if (data.message != undefined && data.message != "") {
-              useNotifyStore().setSuccess({
-                message: data.message,
-              });
-            }
-
-            console.log(data.message);
+            // if (data.message != undefined && data.message != "") {
+            //   useNotifyStore().setSuccess({
+            //     message: data.message,
+            //   });
+            // }
             resolve(response);
+            this.loadingBuy = false;
           })
           .catch((error) => {
+            this.loadingBuy = false;
             reject(error);
             // console.log(error);
             useNotifyStore().setError(error);
