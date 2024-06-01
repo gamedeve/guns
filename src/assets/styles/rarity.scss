@@ -23,14 +23,14 @@
   --rarity-box-shadow-color: #{$legendaryColor};
 }
 .text-common {
-  color: $commonColor;
+  color: $commonColor !important;
 }
 .text-rare {
-  color: $rareColor;
+  color: $rareColor !important;
 }
 .text-epic {
-  color: $epicColor;
+  color: $epicColor !important;
 }
 .text-legendary {
-  color: $legendaryColor;
+  color: $legendaryColor !important;
 }

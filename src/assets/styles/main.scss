@@ -1,4 +1,5 @@
 @import "./fonts.scss";
+@import "./van.scss";
 @import "./animations.scss";
 @import "./variables.scss";
 @import "./helper.scss";
@@ -26,6 +27,7 @@ body {
   position: relative;
   min-height: 100dvh;
 }
+
 .main-loading {
   min-height: 100dvh;
   display: flex;
@@ -219,25 +221,40 @@ body {
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
-  position: relative;
   .van-grid-item__content {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .content {
     padding: 0.5rem;
     background: $darkBlue;
     color: $lightBlue;
-    border: 2px solid $lightBlue;
+    // border: 2px solid $lightBlue;
   }
-  .footer {
+  .van-image {
+    min-height: 100px;
+    min-width: 100px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 45px;
-    button {
-      flex: 1;
-      margin: 0 5px;
-      height: 100%;
-    }
   }
+  // .van-image__loading {
+  //   min-height: 100px;
+  //   min-width: 100px;
+  //   width: 100%;
+  //   background: transparent;
+  // }
+  // .footer {
+  //   width: 100%;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   height: 45px;
+  //   button {
+  //     flex: 1;
+  //     // margin: 0 5px;
+  //     height: 100%;
+  //   }
+  // }
 }
 
 .mission-item {
@@ -419,6 +436,10 @@ body {
   justify-content: center;
   align-items: center;
   color: $lightBlue;
+  h2 {
+    margin-bottom: 16px;
+    font-size: 1.75rem;
+  }
   h3 {
     margin-bottom: 16px;
     font-size: 1.5rem;

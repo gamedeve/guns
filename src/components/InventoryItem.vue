@@ -1,17 +1,25 @@
 <template>
   <van-grid-item class="inventory-item item-clicked">
 
-    id: {{ item.id }}
-    <div class="header">
-      {{ item.name }}
-    </div>
-    <van-image :src="item.image" />
-    <div class="footer">
+    <div class="content rarity" :class="item.info.rarity">
+
+
+      id: {{ item.id }}
+      <div class="header text-rarity" :class="`text-${item.info.rarity}`">
+        {{ item.info.name }}
+      </div>
+      <van-image :src="item.info.icon">
+        <!-- <template #load>
+        <van-loading type="spinner" />
+      </template> -->
+      </van-image>
+      <!-- <div class="footer">
 
       <van-button type="primary" size="small">Primary</van-button>
       <van-button type="success" size="small">Success</van-button>
+    </div> -->
+      <!-- img: {{ item.image }} -->
     </div>
-    <!-- img: {{ item.image }} -->
   </van-grid-item>
 </template>
 <script setup lang="ts">

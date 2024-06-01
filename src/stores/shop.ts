@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { useNotifyStore } from "./notify";
 import { useUserStore } from "./user";
+import { useInventoryStore } from "./inventory";
+
 import axios from "axios";
 export const useShopStore = defineStore("shop", {
   state: () => ({
@@ -51,6 +53,10 @@ export const useShopStore = defineStore("shop", {
             let data = response.data;
             if (data.user) {
               useUserStore().user = data.user;
+            }
+
+            if (data.user && data.user.guns != undefined) {
+              useInventoryStore().setItems(data.user.guns);
             }
 
             // if (data.message != undefined && data.message != "") {

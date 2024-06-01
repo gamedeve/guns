@@ -3,11 +3,12 @@
     <h1>Shop</h1>
     <!-- <PageSoon /> -->
     <PageLoading v-show="shopStore.loading" />
-    <van-button type="primary" text="Show Overlay" @click="showPr = true" />
     <van-overlay :show="showPr">
-      <div class="wrapper wrapper-reward" @click="showPr = false">
-        <h3>{{ rewardName }}</h3>
+      <div class="wrapper wrapper-reward fade-in-one" @click="showPr = false">
+        <h2>You received</h2>
+
         <img class="reward-image" :src="rewardImage" />
+        <h3>{{ rewardName }}</h3>
         <div class="continue">Tap to continue</div>
       </div>
     </van-overlay>
@@ -44,7 +45,7 @@ onMounted(async () => {
 
 function showPrize(reward: any) {
   console.log(reward)
-  rewardImage.value = reward?.image;
+  rewardImage.value = reward?.icon;
   rewardName.value = reward?.name;
   showPr.value = true;
 }

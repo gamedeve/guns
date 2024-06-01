@@ -50,8 +50,8 @@ export const useUserStore = defineStore("user", {
               // console.log(useCounterStore().claim_at);
               // console.log(useCounterStore().next_claim_at);
 
-              if (data.inventory) {
-                useInventoryStore().setItems(data.inventory);
+              if (data.user && data.user.guns != undefined) {
+                useInventoryStore().setItems(data.user.guns);
               }
               // this.setList();
               // this.setMissions();
