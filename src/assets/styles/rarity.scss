@@ -1,27 +1,38 @@
 .rarity {
-  border-width: 2px;
+  border-width: 0px;
   border-style: solid;
   --rarity-box-shadow-color: #{$commonColor};
-  box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
-  -webkit-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
-  -moz-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+
+  &.border-1 {
+    border-width: 1px;
+    box-shadow: 0px 0px 10px 0px var(--rarity-box-shadow-color);
+    -webkit-box-shadow: 0px 0px 10px 0px var(--rarity-box-shadow-color);
+    -moz-box-shadow: 0px 0px 10px 0px var(--rarity-box-shadow-color);
+  }
+  &.border-2 {
+    border-width: 2px;
+    box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+    -webkit-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+    -moz-box-shadow: 0px 0px 20px 0px var(--rarity-box-shadow-color);
+  }
+  &.common {
+    border-color: $commonColor;
+    --rarity-box-shadow-color: #{$commonColor};
+  }
+  &.rare {
+    border-color: $rareColor;
+    --rarity-box-shadow-color: #{$rareColor};
+  }
+  &.epic {
+    border-color: $epicColor;
+    --rarity-box-shadow-color: #{$epicColor};
+  }
+  &.legendary {
+    border-color: $legendaryColor;
+    --rarity-box-shadow-color: #{$legendaryColor};
+  }
 }
-.common {
-  border-color: $commonColor;
-  --rarity-box-shadow-color: #{$commonColor};
-}
-.rare {
-  border-color: $rareColor;
-  --rarity-box-shadow-color: #{$rareColor};
-}
-.epic {
-  border-color: $epicColor;
-  --rarity-box-shadow-color: #{$epicColor};
-}
-.legendary {
-  border-color: $legendaryColor;
-  --rarity-box-shadow-color: #{$legendaryColor};
-}
+
 .text-common {
   color: $commonColor !important;
 }
@@ -33,4 +44,41 @@
 }
 .text-legendary {
   color: $legendaryColor !important;
+}
+.icon-common {
+  svg {
+    fill: $commonColor !important;
+    color: $commonColor !important;
+    path {
+      fill: $commonColor !important;
+    }
+  }
+}
+
+.icon-rare {
+  svg {
+    fill: $rareColor !important;
+    color: $rareColor !important;
+    path {
+      fill: $rareColor !important;
+    }
+  }
+}
+.icon-epic {
+  svg {
+    fill: $epicColor !important;
+    color: $epicColor !important;
+    path {
+      fill: $epicColor !important;
+    }
+  }
+}
+.icon-legendary {
+  svg {
+    fill: $legendaryColor !important;
+    color: $legendaryColor !important;
+    path {
+      fill: $legendaryColor !important;
+    }
+  }
 }

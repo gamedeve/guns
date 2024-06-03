@@ -50,4 +50,8 @@ export interface ShopBoxType {
   rarity: string;
   icon: string;
   price: number;
+  dropChanceCommon: number;
+  dropChanceRare: number;
+  dropChanceEpic: number;
+  dropChanceLegendary: number;
 }

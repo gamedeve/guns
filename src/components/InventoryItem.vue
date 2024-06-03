@@ -1,10 +1,10 @@
 <template>
   <van-grid-item class="inventory-item item-clicked">
 
-    <div class="content rarity" :class="item.info.rarity">
+    <div class="content rarity border-1" :class="item.info.rarity">
 
 
-      id: {{ item.id }}
+      <!-- id: {{ item.id }} -->
       <div class="header text-rarity" :class="`text-${item.info.rarity}`">
         {{ item.info.name }}
       </div>
