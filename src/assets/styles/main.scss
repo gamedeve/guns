@@ -241,6 +241,10 @@ body {
     min-height: 100px;
     min-width: 100px;
     width: 100%;
+    img {
+      rotate: 45deg;
+      scale: 1.2;
+    }
   }
   // .van-image__loading {
   //   min-height: 100px;
@@ -473,6 +477,8 @@ body {
   .reward-image {
     max-width: 250px;
     width: 100%;
+    rotate: 45deg;
+    scale: 1.3;
   }
   .continue {
     margin-top: 16px;

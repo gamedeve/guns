@@ -4,7 +4,7 @@
     <!-- <PageSoon /> -->
     <PageLoading v-show="shopStore.loading" />
     <van-overlay :show="showPr">
-      <div class="wrapper wrapper-reward fade-in-one" @click="showPr = false">
+      <div class="wrapper wrapper-reward fade-in-one" @click="closeRewardBlock">
         <h2>You received</h2>
 
         <img class="reward-image" :src="rewardImage" />
@@ -43,11 +43,20 @@ onMounted(async () => {
   }
 });
 
+function closeRewardBlock() {
+  rewardImage.value = '';
+  rewardName.value = '';
+  showPr.value = false;
+}
+function showRewardBlock() {
+  showPr.value = true;
+}
+
 function showPrize(reward: any) {
   console.log(reward)
   rewardImage.value = reward?.icon;
   rewardName.value = reward?.name;
-  showPr.value = true;
+  showRewardBlock();
 }
 </script>
 
