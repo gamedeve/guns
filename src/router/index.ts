@@ -54,6 +54,11 @@ const router = createRouter({
       name: "boost",
       component: () => import("@/views/BoostView.vue"),
     },
+    {
+      path: "/friends",
+      name: "friends",
+      component: () => import("@/views/FriendsView.vue"),
+    },
   ],
 });
 

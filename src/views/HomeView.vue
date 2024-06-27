@@ -35,6 +35,10 @@ import StatsInfo from "@/components/StatsInfo.vue";
         <img src="@/assets/icons/shop-icon.png" />
         <span class="name">Shop</span>
       </RouterLink>
+      <RouterLink to="/friends" class="main-small-button shop-button">
+        <img src="@/assets/icons/friends-icon.png" />
+        <span class="name">Friends</span>
+      </RouterLink>
     </div>
   </div>
   <!-- </div> -->

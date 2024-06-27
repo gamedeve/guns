@@ -12,6 +12,9 @@ import VueAxios from "vue-axios";
 const app = createApp(App);
 
 const telegram = window.Telegram.WebApp;
+telegram.isClosingConfirmationEnabled = true;
+telegram.expand();
+
 app.provide("tg", telegram);
 const pinia = createPinia();
 pinia.use(({ store }) => {

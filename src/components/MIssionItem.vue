@@ -52,6 +52,7 @@ async function startMission() {
   });
 
   if (mission.url != '') {
+    // openTelegramLink(mission.url);
     window.open(mission.url, "_blank");
   }
   console.log("start", mission.id)

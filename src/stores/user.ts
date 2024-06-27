@@ -19,13 +19,28 @@ export const useUserStore = defineStore("user", {
   getters: {},
   actions: {
     loadUser() {
-      // console.log(window.Telegram.WebApp.initData);
+      // console.log(this.tg.initData);
+      let start_param: string | null = "";
+
+      if (
+        this.tg?.initDataUnsafe?.start_param != undefined &&
+        this.tg?.initDataUnsafe?.start_param != ""
+      ) {
+        start_param = this.tg?.initDataUnsafe?.start_param;
+      } else {
+        let params = new URLSearchParams(document.location.search);
+        start_param = params.get("start_param"); // is the string "Jonathan"
+        // console.log(start_param);
+      }
 
       return new Promise((resolve, reject) => {
         axios
           .post(
             // "/load_user?fdf"
-            "/load_user?" + this.tg.initData
+            "/load_user?" + this.tg.initData,
+            {
+              start_param: start_param,
+            }
             // JSON.parse(
             //   '{"' +
             //     decodeURI(this.tg.initData)
@@ -45,7 +60,7 @@ export const useUserStore = defineStore("user", {
               this.isLoggedIn = true;
               this.updateUserCounter(data.user);
 
-              console.log("user loaded22.");
+              console.log("user loaded.");
               // console.log(data);
               // console.log(useCounterStore().claim_at);
               // console.log(useCounterStore().next_claim_at);
@@ -61,7 +76,13 @@ export const useUserStore = defineStore("user", {
           })
           .catch((error) => {
             reject(error);
-            // console.log(error);
+            // console.log(this.tg.initData);
+            // console.log(this.tg.initDataUnsafe);
+            // console.log(this.tg.initDataUnsafe.start_param);
+            // console.log("_________________");
+            // let params = new URLSearchParams(document.location.search);
+            // let start_param = params.get("start_param"); // is the string "Jonathan"
+            // console.log(start_param);
             useNotifyStore().setError(error);
           });
       });
