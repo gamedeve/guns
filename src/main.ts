@@ -1,6 +1,6 @@
 import "vant/lib/index.css";
 import "./assets/styles/main.scss";
-import eruda from "eruda";
+// import eruda from "eruda";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
@@ -16,6 +16,7 @@ telegram.isClosingConfirmationEnabled = true;
 telegram.expand();
 
 app.provide("tg", telegram);
+app.provide("eruda", eruda);
 const pinia = createPinia();
 pinia.use(({ store }) => {
   store.tg = telegram;
@@ -30,7 +31,8 @@ app.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 app.mount("#app");
 
-eruda.init();
+// eruda.init();
+// eruda.remove();
 
 // const backButton = Telegram.WebApp.BackButton;
 

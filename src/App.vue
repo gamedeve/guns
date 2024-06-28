@@ -8,6 +8,7 @@
   <!-- <BottomMenu /> -->
 </template>
 <script setup lang="ts">
+import eruda from "eruda";
 import { onMounted, ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import Navbar from "@/components/basic/Navbar.vue";
@@ -23,13 +24,16 @@ const userStore = useUserStore()
 
 const loadUser = ref(false);
 const loadingError = ref("");
-// const tg = inject('tg');
+// const eruda = inject('eruda');
 // const backButton = window.Telegram.WebApp.BackButton;
 onMounted(async () => {
   if (!userStore.isLoggedIn) {
     loadUser.value = true;
     await userStore.loadUser().then((response) => {
       loadUser.value = false;
+      if (userStore?.user?.id === 1) {
+        eruda.init();
+      }
     }).catch((error) => {
       // reject(error);
       loadUser.value = false;
@@ -40,34 +44,42 @@ onMounted(async () => {
 });
 
 
-const overflow = 100
-document.body.style.overflowY = 'hidden'
-document.body.style.marginTop = `${overflow}px`
-document.body.style.height = window.innerHeight + overflow + "px"
-document.body.style.paddingBottom = `${overflow}px`
-window.scrollTo(0, overflow)
+// const overflow = 100
+// document.body.style.overflowY = 'hidden'
+// document.body.style.marginTop = `${overflow}px`
+// document.body.style.height = window.innerHeight + overflow + "px"
+// document.body.style.paddingBottom = `${overflow}px`
+// window.scrollTo(0, overflow)
 
-let ts: number | undefined
-const onTouchStart = (e: TouchEvent) => {
-  ts = e.touches[0].clientY
-}
-const scrollableEl = document.getElementById('app')
-const onTouchMove = (e: TouchEvent) => {
-  if (scrollableEl) {
-    const scroll = scrollableEl.scrollTop
-    const te = e.changedTouches[0].clientY
-    if (scroll <= 0 && ts! < te) {
-      e.preventDefault()
-    }
-  } else {
-    e.preventDefault()
-  }
-}
-document.documentElement.addEventListener('touchstart', onTouchStart, { passive: false })
-document.documentElement.addEventListener('touchmove', onTouchMove, { passive: false })
-// Показывать кнопку только если есть GET параметры
-// Показывать кнопку только если есть параметры 
-// и страница не главная
+// let ts: number | undefined
+// const onTouchStart = (e: TouchEvent) => {
+//   ts = e.touches[0].clientY
+// }
+// const scrollableEl = document.getElementById('app')
+// console.log('_________________')
+// console.log(scrollableEl)
+// const onTouchMove = (e: TouchEvent) => {
+//   if (scrollableEl) {
+//     const scroll = scrollableEl.scrollTop
+//     const te = e.changedTouches[0].clientY
+//     if (scroll <= 0 && ts! < te) {
+//       e.preventDefault()
+//     }
+//   } else {
+//     e.preventDefault()
+//   }
+// }
+// document.documentElement.addEventListener('touchstart', onTouchStart, { passive: false })
+// document.documentElement.addEventListener('touchmove', onTouchMove, { passive: false })
+// const onScroll = () => {
+//   if (window.scrollY < overflow) {
+//     window.scrollTo(0, overflow)
+//     if (scrollableEl) {
+//       scrollableEl.scrollTo(0, 0)
+//     }
+//   }
+// }
+// window.addEventListener('scroll', onScroll, { passive: true })
 
 </script>
 
