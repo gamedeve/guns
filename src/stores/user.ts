@@ -19,21 +19,21 @@ export const useUserStore = defineStore("user", {
   getters: {},
   actions: {
     loadUser() {
-      // console.log(this.tg.initData);
-      let start_param: string | null = "";
-
-      if (
-        this.tg?.initDataUnsafe?.start_param != undefined &&
-        this.tg?.initDataUnsafe?.start_param != ""
-      ) {
-        start_param = this.tg?.initDataUnsafe?.start_param;
-      } else {
-        let params = new URLSearchParams(document.location.search);
-        start_param = params.get("start_param"); // is the string "Jonathan"
-        // console.log(start_param);
-      }
-
       return new Promise((resolve, reject) => {
+        // console.log(this.tg.initData);
+        let start_param: string | null = "";
+
+        if (
+          this.tg?.initDataUnsafe?.start_param != undefined &&
+          this.tg?.initDataUnsafe?.start_param != ""
+        ) {
+          start_param = this.tg?.initDataUnsafe?.start_param;
+        } else {
+          let params = new URLSearchParams(document.location.search);
+          start_param = params.get("start_param"); // is the string "Jonathan"
+          // console.log(start_param);
+        }
+
         axios
           .post(
             // "/load_user?fdf"
@@ -61,6 +61,7 @@ export const useUserStore = defineStore("user", {
               this.updateUserCounter(data.user);
 
               console.log("user loaded.");
+              // console.log(this.tg?.initDataUnsafe);
               // console.log(data);
               // console.log(useCounterStore().claim_at);
               // console.log(useCounterStore().next_claim_at);

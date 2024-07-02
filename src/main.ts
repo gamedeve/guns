@@ -16,7 +16,7 @@ telegram.isClosingConfirmationEnabled = true;
 telegram.expand();
 
 app.provide("tg", telegram);
-app.provide("eruda", eruda);
+// app.provide("eruda", eruda);
 const pinia = createPinia();
 pinia.use(({ store }) => {
   store.tg = telegram;
@@ -29,6 +29,9 @@ app.use(VueAxios, axios);
 app.axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 app.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
+if (process.env.NODE_ENV === "development") {
+  app.axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420";
+}
 app.mount("#app");
 
 // eruda.init();

@@ -31,7 +31,7 @@ onMounted(async () => {
     loadUser.value = true;
     await userStore.loadUser().then((response) => {
       loadUser.value = false;
-      if (userStore?.user?.id === 1) {
+      if (userStore?.user?.id === 1 || process.env.NODE_ENV === "development") {
         eruda.init();
       }
     }).catch((error) => {
